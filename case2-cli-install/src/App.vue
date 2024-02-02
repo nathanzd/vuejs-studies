@@ -1,15 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <HeaderVue 
+  v-if="showHeader"
+  />
+
+  <div>
+    Nome : {{ firstName }}<br/> 
+    Sobrenome: {{ lastName }}
+    <button v-on:click="onClick('Ola mundo')">
+        Clique Para Alertar {{ nome }}
+    </button>
+    <input v-model="nome"/>
+  </div>
+
+  <img
+    alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import HeaderVue from './components/Header.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    HeaderVue
+  },
+  data(){
+    return {
+      firstName:'Joao',
+      lastName:'Silva',
+      showHeader:true,
+      nome:''
+    }
+  },
+  watch:{
+    nome(newValue,OldValue){
+      console.log(newValue,OldValue)
+    }
+  },
+  methods:{
+    onClick(text){
+      alert(text)
+    }
   }
 }
 </script>

@@ -1,6 +1,7 @@
 {
   "name": "case2-cli-install",
   "version": "0.1.0",
+  
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
